@@ -8,6 +8,7 @@ import AdminLogin from './components/AdminLogin/AdminLogin.jsx'
 import AdminLanding from './components/AdminLanding/AdminLanding.jsx'
 import AdminMembers from './components/AdminMembers/AdminMembers.jsx'
 import AdminCompose from './components/AdminCompose/AdminCompose.jsx'
+import MemberList from './components/MemberList/MemberList.jsx'
 
 export default (
   <Switch>
@@ -22,6 +23,9 @@ export default (
     </Route>
     <Route path = '/about'>
       <About/>
+    </Route>
+    <Route path ='/members'>
+      <MemberList/>
     </Route>
     <Route exact path = '/admin'>
       <AdminLogin/>
