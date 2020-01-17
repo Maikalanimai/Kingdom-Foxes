@@ -22,7 +22,7 @@ app.use(
       resave: false,
       saveUninitialized: true,
       cookie: {
-        maxAge: 60*60*1000
+        maxAge: 60*60*1000 //1hour
       }
     }
   )
@@ -30,7 +30,8 @@ app.use(
 app.use(initSession)
 
 //basic endpoints
-
+app.post('/api/application', playCtrl.putApp)
+app.get('/api/test',playCtrl.getMemberStats)
 //admin restricted endpoints
 
 //authorization endpoints

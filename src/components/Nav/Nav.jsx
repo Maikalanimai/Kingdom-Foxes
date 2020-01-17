@@ -9,7 +9,7 @@ function Nav(props) {
         <Link to='/about'><li>about us</li></Link>
         <Link to='/anouncements'><li>public anouncements</li></Link>
         {props.match.path==='/'? <></> : <Link to='/'><li>Home</li></Link>}
-        <Link to='/join'><li>join today</li></Link>
+        <Link to='/join/1'><li>join today</li></Link>
         <Link to='/members'><li>member list</li></Link>
       </ul>
     </div>
