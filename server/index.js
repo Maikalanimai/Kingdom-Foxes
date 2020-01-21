@@ -31,7 +31,9 @@ app.use(initSession)
 
 //basic endpoints
 app.post('/api/application', playCtrl.putApp)
-app.get('/api/test',playCtrl.getMemberStats)
+app.get('/api/members',playCtrl.getMemberList)
+app.get('/api/member/:username', playCtrl.updatePlayerData)
+app.get('/api/randStats', playCtrl.getRandomStats)
 //admin restricted endpoints
 
 //authorization endpoints

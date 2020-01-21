@@ -1,0 +1,1 @@
+select sum(chests_found) from player_data;

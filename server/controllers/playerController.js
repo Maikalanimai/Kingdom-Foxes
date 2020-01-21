@@ -47,35 +47,62 @@ module.exports = {
         console.log(err);
       });
   },
-  async getMemberStats(req, res) {
+  async getMemberList(req, res) {
     console.log("Getmemberstats hit");
-    const db = req.app.get("db");
+    // const db = req.app.get("db");
     axios
       .get(
         "https://api.wynncraft.com/public_api.php?action=guildStats&command=Kingdom Foxes"
       )
       .then(result => {
-        let delay = 0;
-        const memberList = result.data.members.map((e, i, a) => {
-          return (setTimeout(() => {
-            console.log(e.name);
-            axios
-              .get(`https://api.wynncraft.com/v2/player/${e.name}/stats`)
-              .then(result2 => {
-                console.log(result2.data.data)
-                return result2.data;
-              })
-              .catch(err => {
-                console.log( 'error occured')
-                return err.response
+        res.status(200).send(result.data.members);
+      });
+  },
+  updatePlayerData(req, res) {
+    const db = req.app.get("db");
+    const { username } = req.params;
+    axios
+      .get(`https://api.wynncraft.com/v2/player/${username}/stats`)
+      .then(result => {
+        const memberData = result.data.data[0];
+        console.log(result.data.data[0]);
+        db.user.delete_player_dat(username).then(() => {
+          db.user
+            .update_member_data(
+              memberData.username,
+              memberData.rank,
+              memberData.meta.firstJoin,
+              memberData.meta.playtime,
+              memberData.global.chestsFound,
+              memberData.global.blocksWalked,
+              memberData.global.mobsKilled,
+              memberData.global.totalLevel.combined,
+              memberData.global.totalLevel.combat,
+              memberData.global.logins,
+              memberData.global.deaths
+            )
+            .then(() => {
+              db.user.get_member_info(memberData.username).then(memInfo => {
+                console.log(memInfo[0]);
+                res.status(201).send(memInfo[0]);
               });
-          }),
-            i * 3000)
-        });
-        console.log(memberList)
-        Promise.all(memberList).then(promRes => {
-          res.status(200).send(promRes);
+            });
         });
       });
+  },
+  getRandomStats(req, res) {
+    const db = req.app.get("db");
+    Promise.all([
+      db.user.get_chests_found(),
+      db.user.get_combined_level(),
+      db.user.get_deaths(),
+      db.user.get_logins(),
+      db.user.get_mobs_killed(),
+      db.user.get_playtime(),
+      db.user.get_steps_taken(),
+    db.user.country_count()]
+    ).then(result => {
+      res.status(200).send(result)
+    });
   }
 };

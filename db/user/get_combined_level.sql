@@ -1,0 +1,1 @@
+select sum(combined_level) from player_data;

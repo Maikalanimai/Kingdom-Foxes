@@ -1,0 +1,1 @@
+select sum(steps_taken) from player_data;

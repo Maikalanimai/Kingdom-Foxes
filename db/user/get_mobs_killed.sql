@@ -1,0 +1,1 @@
+select sum(mobs_killed) from player_data;

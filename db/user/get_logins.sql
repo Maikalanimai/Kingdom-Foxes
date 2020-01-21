@@ -1,0 +1,1 @@
+select sum(logins) from player_data;

@@ -1,0 +1,1 @@
+select  count(distinct country) from guild_members

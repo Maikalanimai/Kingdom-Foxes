@@ -1,9 +1,11 @@
 import React from 'react'
+import banner from '../../assets/banner-forever-or-nothing.png'
 
 function Header() {
   return(
     <div>
-      Header.jsx
+      <img src={banner} alt='banner'/>
+      
     </div>
   )
 }

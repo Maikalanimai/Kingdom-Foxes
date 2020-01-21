@@ -6,8 +6,7 @@ import Axios from 'axios'
 
 function Home() {
   return(
-    <div>
-      Home.jsx
+    <div >
       <Header/>
       <Nav/>
       <Footer/>

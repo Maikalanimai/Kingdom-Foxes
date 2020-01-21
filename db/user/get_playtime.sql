@@ -1,0 +1,1 @@
+select sum(playtime) from player_data;
