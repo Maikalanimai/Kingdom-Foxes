@@ -7,12 +7,14 @@ import Join from "../Join";
 function WizardTwo(props) {
   const [inGameTime, setInGameTime] = useState("");
   const [mainClass, setMainClass] = useState("");
-  const [mainClassLevel, setMainClassLevel] = useState("");
+  const [mainClassLevel, setMainClassLevel] = useState("Warrior");
   const [enjoy, setEnjoy] = useState("");
   const [reason, setReason] = useState("");
   const [togglePrevious, setTogglePrevious] = useState(false);
   const [previousGuilds, setPreviousGuilds] = useState("");
   const [whyLeave, setWhyLeave] = useState("");
+
+  
 
   useEffect(() => {
     setInGameTime(props.inGameTime);
@@ -67,6 +69,7 @@ function WizardTwo(props) {
       />
       <p>Main Class</p>
       <select value={mainClass} onChange={e => setMainClass(e.target.value)}>
+        <option value={null}>--Select a Class--</option>
         <option value="Warrior">Warrior</option>
         <option value="Assassin">Assassin</option>
         <option value="Archer">Archer</option>

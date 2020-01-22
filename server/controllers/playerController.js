@@ -98,9 +98,9 @@ module.exports = {
       db.user.get_mobs_killed(),
       db.user.get_playtime(),
       db.user.get_steps_taken(),
-    db.user.country_count()]
-    ).then(result => {
-      res.status(200).send(result)
+      db.user.country_count()
+    ]).then(result => {
+      res.status(200).send(result);
     });
   }
 };

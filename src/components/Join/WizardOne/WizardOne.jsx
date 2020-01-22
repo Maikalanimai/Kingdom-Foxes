@@ -11,6 +11,7 @@ function WizardOne(props) {
   const [gender, setGender] = useState("M");
   const [age, setAge] = useState("");
 
+
   useEffect(() => {
     setIgn(props.ign);
     setCountry(props.country);
@@ -56,6 +57,7 @@ function WizardOne(props) {
         onChange={e => setGender(e.target.value)}
         value={gender}
       >
+        <option value = {null}>-Select a gender-</option>
         <option value="M">M</option>
         <option value="F">F</option>
       </select>

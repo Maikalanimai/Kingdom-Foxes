@@ -14,7 +14,8 @@ insert into applications(
     discord_user,
     forum_user,
     consent_to_email,
-    email
+    email,
+    accepted
   )
 values
   ($1, 
@@ -32,4 +33,5 @@ values
   $13,
   $14,
   $15,
-  $16)
+  $16,
+  false)

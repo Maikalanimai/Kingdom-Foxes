@@ -35,7 +35,8 @@ app.get('/api/members',playCtrl.getMemberList)
 app.get('/api/member/:username', playCtrl.updatePlayerData)
 app.get('/api/randStats', playCtrl.getRandomStats)
 //admin restricted endpoints
-
+app.get('/admin/applications', authCheck, adminCtrl.getApplications)
+app.put('/admin/applicationresult/:id', authCheck, adminCtrl.applicationProcess)
 //authorization endpoints
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
