@@ -65,7 +65,6 @@ module.exports = {
       .get(`https://api.wynncraft.com/v2/player/${username}/stats`)
       .then(result => {
         const memberData = result.data.data[0];
-        console.log(result.data.data[0]);
         db.user.delete_player_dat(username).then(() => {
           db.user
             .update_member_data(
@@ -83,7 +82,6 @@ module.exports = {
             )
             .then(() => {
               db.user.get_member_info(memberData.username).then(memInfo => {
-                console.log(memInfo[0]);
                 res.status(201).send(memInfo[0]);
               });
             });

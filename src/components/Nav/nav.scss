@@ -1,0 +1,32 @@
+.nav {
+  background: #f1f1f1;
+  margin: 0px;
+  position: sticky;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  height: 10vh;
+  align-items: center;
+  border: #f2f2f2 solid 2px;
+}
+
+.nav-list {
+  font-size: xx-large;
+  color: slategray;
+  text-decoration: none;
+  padding: 0px 1rem;
+  transition: 300ms;
+  border-radius: 25px;
+}
+
+.nav-list:hover{
+  color: #f1f1f1;
+  background-color: slateGrey;
+}
+
+
+

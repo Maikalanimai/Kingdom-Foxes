@@ -1,0 +1,29 @@
+.listmain {
+  margin: 5rem;
+  background: slategray;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(50, auto);
+}
+
+.pad{
+  padding: 0px 2rem;
+}
+
+.OWNER {
+  grid-row: 1;
+  grid-column: 1/13;
+}
+
+.CHIEF {
+  grid-column: span 6;
+}
+.CAPTAIN {
+  grid-column: span 4;
+}
+.RECRUITER {
+  grid-column: span 3;
+}
+.RECRUIT {
+  grid-column: span 3;
+}
