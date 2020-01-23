@@ -5,7 +5,8 @@ function Accepted(props) {
   const complete = () => {
     Axios.put(`/admin/applicationresult/${props.id}?method=false`).then(
       res => alert("Application removed from system"),
-      window.location.reload()
+      props.removeApplicant(props.index)
+      
     );
   };
 

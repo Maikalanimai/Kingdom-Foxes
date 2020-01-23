@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
+
+
 function Application(props) {
   const [appStatus, setAppStatus] = useState("");
 
+
   const confirm = () => {
-    Axios.put(`/admin/applicationresult/${props.id}?method=${appStatus}`)
-    .then(res =>
-      alert(res.data),
-      window.location.reload()
+    Axios.put(`/admin/applicationresult/${props.id}?method=${appStatus}`).then(
+      res => {
+        alert(res.data);
+        props.removeApplicant(props.index)
+        // window.location.reload()
+      }
     );
   };
 
@@ -46,7 +51,11 @@ function Application(props) {
       ) : (
         <></>
       )}
-      {appStatus !== "" ? <button onClick={() => confirm()}>Confirm</button> : <></>}
+      {appStatus !== "" ? (
+        <button onClick={() => confirm()}>Confirm</button>
+      ) : (
+        <></>
+      )}
       {appStatus === "" ? (
         <button onClick={() => setAppStatus(true)}>Accept</button>
       ) : (

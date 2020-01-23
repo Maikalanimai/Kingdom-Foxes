@@ -22,6 +22,14 @@ class AdminApplication extends React.Component {
     });
   }
 
+  componentDidUpdate(oldProps, oldState) {
+    oldState !== this.state? console.log('update') : console.log('no update')
+  }
+
+  removeApplicant=(index)=> {
+    this.state.applicants.splice(index, 1)
+  }
+
   render() {
     return (
       <div>
@@ -30,6 +38,8 @@ class AdminApplication extends React.Component {
           {this.state.applicants.map((e, i) => {
             return (
               <Application
+                removeApplicant={this.removeApplicant}
+                index={i}
                 id={e.id}
                 ign={e.ign}
                 age={e.age}
@@ -50,9 +60,11 @@ class AdminApplication extends React.Component {
               />
             );
           })}
-          {this.state.accepted.map(e => {
+          {this.state.accepted.map((e, i) => {
             return (
               <Accepted
+                removeApplicant={this.removeApplicant}
+                index={i}
                 id={e.id}
                 ign={e.ign}
                 discord_user={e.discord_user}

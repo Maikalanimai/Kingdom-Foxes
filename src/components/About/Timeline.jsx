@@ -1,35 +1,35 @@
-import React, { Component } from "react";
-import * as d3 from "d3";
+import React, { useRef, useEffect, useState } from "react";
+import { select, geoPath, geoMercator, min, max } from "d3";
+import "./timeline.scss";
+import useResizeObserver from './useResizeObserver.jsx'
 
+function Timeline({data}) {
+  const svgRef = useRef();
+  const wrapperRef = useRef();
+  let dimensions = useResizeObserver(wrapperRef)
+  setTimeout(()=>{dimensions ? console.log(dimensions.width): console.log('dimensions is null')}, 3000)
+  useEffect(() => {
+    const svg = select(svgRef.current);
+    
+    const { width, height } = 
+      dimensions || wrapperRef.current.getBoundingClientRect();
 
-class MyTimeline extends Component {
-  componentDidMount() {
-    const data = [ 2, 4, 2, 6, 8 ]
-    // this.drawBarChart(data)
-}
-drawBarChart(data)  {
-  const svgCanvas = d3.select(this.refs.canvas)
-    .append('svg')
-    .attr('width', 600)
-    .atrr('height', 400)
-    .style('border', '1px solid black')
-}
-  render() {
-    // let data = [23, 26, 43, 12, 68];
-    // d3.select('.chart')
-    //   .selectAll("div")
-    //   .data(data)
-    //   .enter()
-    //   .append("div")
-    //   .style("width",(d)=> {
-    //     return d * 3 + "px"
-    //   })
-    //   .style("background", "steelblue")
-    //   .style('height', '30px')
-    //   .text(d =>  d
-    //   )
-    return <div className="chart" ref='canvas'>test</div>;
-  }
+    const projection = geoMercator().fitSize([width, height], data);
+    const pathGenerator = geoPath().projection(projection);
+
+    svg
+      .selectAll(".country")
+      .data(data.features)
+      .join("path")
+      .attr("class", "country")
+      .attr('d', feature => pathGenerator(feature));
+  }, [dimensions]);
+
+  return (
+    <div className='test' ref={wrapperRef}>
+      <svg ref={svgRef}></svg>
+    </div>
+  );
 }
 
-export default MyTimeline;
+export default Timeline;

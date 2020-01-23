@@ -3,19 +3,23 @@ import Member from "./Member/Member.jsx";
 import Nav from "../Nav/Nav.jsx";
 import Axios from "axios";
 import "./memberList.scss";
+import Footer from "../Footer/Footer.jsx";
+import Loader from 'react-loader-spinner'
 
 class MemberList extends React.Component {
   constructor() {
     super();
     this.state = {
-      memberList: []
+      memberList: [],
+      loading: true
     };
   }
 
   componentDidMount() {
     Axios.get("/api/members").then(res => {
       this.setState({
-        memberList: res.data
+        memberList: res.data,
+        loading: false
       });
     });
   }
@@ -32,15 +36,20 @@ class MemberList extends React.Component {
     return (
       <div>
         <Nav />
-        <main className="listmain">
-          {owners}
+        {this.state.loading ? (
+          <Loader type="TailSpin" color="orange" height={150} width={150} />
+        ) : (
+          <main className="listmain">
+            {owners}
 
             {chiefs}
 
-          {captains}
-          {recruiters}
-          {recruits}
-        </main>
+            {captains}
+            {recruiters}
+            {recruits}
+          </main>
+        )}
+        <Footer />
       </div>
     );
   }

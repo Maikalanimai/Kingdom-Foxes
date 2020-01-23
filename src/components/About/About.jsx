@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../Nav/Nav.jsx";
 import Axios from "axios";
 import MyTimeline from './Timeline.jsx'
+import data from '../../assets/custom.geo.json'
 
 class About extends React.Component {
   constructor() {
@@ -47,6 +48,7 @@ class About extends React.Component {
         <p>
           Members from {this.state.randStats[7][0].count} countries!
         </p>
+        <MyTimeline data={data}/>
       </>
     );
   };
@@ -56,7 +58,6 @@ class About extends React.Component {
         <Nav />
         About.jsx
         {!this.state.loading ? this.returnRandStats() : <></>}
-        <MyTimeline/>
       </div>
     );
   }
