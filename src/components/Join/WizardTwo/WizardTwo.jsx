@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { updateGameInfo } from "../../../ducks/reducers/joinReducer";
 import Join from "../Join";
+import Footer from '../../Footer/Footer.jsx'
 
 function WizardTwo(props) {
   const [inGameTime, setInGameTime] = useState("");
@@ -124,6 +125,7 @@ function WizardTwo(props) {
         <button>Back</button>
       </Link>
       <button onClick={e => next()}>Next</button>
+      <Footer/>
     </div>
   );
 }

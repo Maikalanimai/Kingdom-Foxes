@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { updateGenInfo } from "../../../ducks/reducers/joinReducer";
 import Join from "../Join";
+import Footer from '../../Footer/Footer.jsx'
 
 function WizardOne(props) {
   const [ign, setIgn] = useState("");
@@ -68,6 +69,7 @@ function WizardOne(props) {
         value={age}
       />
       <button onClick={e => next()}>Next</button>
+      <Footer/>
     </div>
   );
 }

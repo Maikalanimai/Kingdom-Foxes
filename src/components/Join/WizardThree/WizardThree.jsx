@@ -4,6 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import { updateContactInfo } from "../../../ducks/reducers/joinReducer";
 import Join from "../Join";
 import axios from "axios";
+import Footer from '../../Footer/Footer.jsx'
 
 function WizardThree(props) {
   const [discord, setDiscord] = useState("");
@@ -92,6 +93,7 @@ function WizardThree(props) {
         <button>Back</button>
       </Link>
       <button onClick={e => next()}>Submit</button>
+      <Footer/>
     </div>
   );
 }

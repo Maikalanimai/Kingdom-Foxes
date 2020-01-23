@@ -1,0 +1,78 @@
+.about-layout {
+  display: grid;
+  grid-template-rows: 1fr 1.5fr 1fr .5fr;
+  grid-row-gap: 3rem;
+  margin: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.seg-title {
+  font-size: 3rem;
+  text-decoration: underline orange;
+}
+
+.culture {
+  font-size: x-large;
+}
+
+.weight-left{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 3fr;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.weight-right{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 3fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.global{
+  text-decoration: none;
+}
+
+.involved {
+  background: slategrey;
+  padding: 2rem 0;
+  border: #f1f1f1 solid 3px ;
+  height: 15vh;
+  border-radius: 25px;
+}
+
+.rand-stats{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 2rem;
+}
+
+.stat{
+  transition: 300ms;
+}
+
+.learn-options{
+  display:flex;
+  font-size: x-large;
+  border: orange solid 2px;
+}
+
+.learn-option {
+  font-size: x-large;
+  color: #f1f1f1;
+  transition: 400ms
+}
+
+.stat:hover{
+  font-size: 1.75rem;
+  font-weight: bolder;
+}
+
+.learn-option:hover {
+  font-size: 2.25rem;
+  font-weight: bolder;
+}
