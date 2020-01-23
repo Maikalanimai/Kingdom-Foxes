@@ -1,15 +1,16 @@
 import React from "react";
 import Nav from "../Nav/Nav.jsx";
 import Axios from "axios";
-import MyTimeline from './Timeline.jsx'
-import data from '../../assets/custom.geo.json'
+import MyTimeline from "./Timeline.jsx";
+import data from "../../assets/custom.geo.json";
 
 class About extends React.Component {
   constructor() {
     super();
     this.state = {
       randStats: [],
-      loading: true
+      loading: true,
+      countries: []
     };
   }
 
@@ -20,11 +21,20 @@ class About extends React.Component {
         loading: false
       });
     });
+    Axios.get("/api/map").then(res => {
+      const countries = res.data.map(e => e.country);
+      this.setState(
+        {
+          countries: countries
+        },
+        console.log(countries)
+      );
+    });
   }
 
   returnRandStats = () => {
     return (
-      <>
+      <div>
         <p>Chests Found: {this.state.randStats[0][0].sum}</p>
         <p>
           Combined Level of all guild members: {this.state.randStats[1][0].sum}
@@ -40,16 +50,15 @@ class About extends React.Component {
           {this.state.randStats[4][0].sum}
         </p>
         <p>
-          Combined days of playtime: {Math.trunc(this.state.randStats[5][0].sum / 60 / 24)}
+          Combined days of playtime:{" "}
+          {Math.trunc(this.state.randStats[5][0].sum / 60 / 24)}
         </p>
         <p>
-          Kilometers Traveled: {Math.trunc(this.state.randStats[6][0].sum / 1000)}
+          Kilometers Traveled:{" "}
+          {Math.trunc(this.state.randStats[6][0].sum / 1000)}
         </p>
-        <p>
-          Members from {this.state.randStats[7][0].count} countries!
-        </p>
-        <MyTimeline data={data}/>
-      </>
+        <p>Members from {this.state.randStats[7][0].count} countries!</p>
+      </div>
     );
   };
   render() {
@@ -57,7 +66,11 @@ class About extends React.Component {
       <div>
         <Nav />
         About.jsx
+        <div>
+        <h1>Our Culture</h1>
+        </div>
         {!this.state.loading ? this.returnRandStats() : <></>}
+      <MyTimeline data={data} memberCountries={this.state.countries} />
       </div>
     );
   }

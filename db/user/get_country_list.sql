@@ -1,0 +1,1 @@
+select distinct country from guild_members

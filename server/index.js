@@ -34,6 +34,7 @@ app.post('/api/application', playCtrl.putApp)
 app.get('/api/members',playCtrl.getMemberList)
 app.get('/api/member/:username', playCtrl.updatePlayerData)
 app.get('/api/randStats', playCtrl.getRandomStats)
+app.get('/api/map', playCtrl.getCountryList)
 //admin restricted endpoints
 app.get('/admin/applications', authCheck, adminCtrl.getApplications)
 app.put('/admin/applicationresult/:id', authCheck, adminCtrl.applicationProcess)

@@ -1,34 +1,59 @@
 import React, { useRef, useEffect, useState } from "react";
-import { select, geoPath, geoMercator, min, max } from "d3";
+import { select, geoPath, geoMercator } from "d3";
 import "./timeline.scss";
-import useResizeObserver from './useResizeObserver.jsx'
+import useResizeObserver from "./useResizeObserver.jsx";
 
-function Timeline({data}) {
+function Timeline({ data, memberCountries }) {
   const svgRef = useRef();
   const wrapperRef = useRef();
-  let dimensions = useResizeObserver(wrapperRef)
-  setTimeout(()=>{dimensions ? console.log(dimensions.width): console.log('dimensions is null')}, 3000)
+  let dimensions = useResizeObserver(wrapperRef);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  setTimeout(() => {
+    dimensions
+      ? console.log(dimensions.width)
+      : console.log("dimensions is null");
+  }, 3000);
+
   useEffect(() => {
     const svg = select(svgRef.current);
-    
-    const { width, height } = 
+
+    const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
 
-    const projection = geoMercator().fitSize([width, height], data);
+    const projection = geoMercator()
+      .fitSize([width, height], selectedCountry ? selectedCountry : data)
+      .precision(2);
     const pathGenerator = geoPath().projection(projection);
 
     svg
       .selectAll(".country")
       .data(data.features)
       .join("path")
+      .on("click", feature => {
+        setSelectedCountry(selectedCountry === feature ? null : feature);
+      })
+      .transition()
+      .duration(1000)
       .attr("class", "country")
-      .attr('d', feature => pathGenerator(feature));
-  }, [dimensions]);
+      .attr("id", feature => feature.properties.name.replace(/\s/g, ""))
+      .attr("d", feature => pathGenerator(feature));
+  }, [data, dimensions, selectedCountry]);
 
   return (
-    <div className='test' ref={wrapperRef}>
-      <svg ref={svgRef}></svg>
-    </div>
+    <>
+      <div className="test" ref={wrapperRef}>
+        <svg className="test" ref={svgRef}></svg>
+      </div>
+      {memberCountries.map(e =>
+        e !== null ? (
+          <style>
+            {"#" + e.replace(/\s/g, "")} {"{fill: orange}"}
+          </style>
+        ) : (
+          <></>
+        )
+      )}
+    </>
   );
 }
 

@@ -102,5 +102,11 @@ module.exports = {
     ]).then(result => {
       res.status(200).send(result);
     });
+  },
+  getCountryList(req,res) {
+    const db = req.app.get('db')
+    db.user.get_country_list().then(result => {
+      res.status(200).send(result)
+    })
   }
 };
