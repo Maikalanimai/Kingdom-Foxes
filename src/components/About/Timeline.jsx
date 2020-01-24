@@ -8,11 +8,6 @@ function Timeline({ data, memberCountries }) {
   const wrapperRef = useRef();
   let dimensions = useResizeObserver(wrapperRef);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  setTimeout(() => {
-    dimensions
-      ? console.log(dimensions.width)
-      : console.log("dimensions is null");
-  }, 3000);
 
   useEffect(() => {
     const svg = select(svgRef.current);
@@ -44,9 +39,9 @@ function Timeline({ data, memberCountries }) {
       <div className="test" ref={wrapperRef}>
         <svg className="test" ref={svgRef}></svg>
       </div>
-      {memberCountries.map(e =>
+      {memberCountries.map((e,i) =>
         e !== null ? (
-          <style>
+          <style key={i}>
             {"#" + e.replace(/\s/g, "")} {"{fill: orange}"}
           </style>
         ) : (

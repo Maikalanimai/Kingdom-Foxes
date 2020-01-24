@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import "./adminLogin.scss";
 
 function AdminLogin(props) {
   const [username, setUsername] = useState("");
@@ -43,22 +44,34 @@ function AdminLogin(props) {
     });
   }, [props.history]);
   return (
-    <div>
-      AdminLogin.jsx
-      <button onClick={() => props.history.push("/")}>Go Back</button>
-      <input
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        placeholder="Password"
-        type="password"
-      />
-      <button onClick={() => register()}>Register</button>
-      <button onClick={() => login()}>Login</button>
+    <div className="page">
+      <button className="back-main" onClick={() => props.history.push("/")}>
+        ＜＜Go Back
+      </button>
+      <div className="inner-login ">
+        <input
+          className="username admin-input"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          placeholder="Username"
+          type="text"
+        />
+        <input
+          className="password admin-input"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          placeholder="Password"
+          type="password"
+        />
+        <div className="buttons">
+          <button onClick={() => register()} className="register login-but">
+            Register
+          </button>
+          <button onClick={() => login()} className="login login-but">
+            Login
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,74 @@
+.page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.inner-login {
+  position: absolute;
+  top: 25vh;
+  bottom: 25vh;
+  width: 50%;
+  background: orange;
+  border-radius: 50px;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-row-gap: 2rem;
+}
+
+.back-main {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  height: 3rem;
+  border-radius: 15px;
+  border: orange solid 2px;
+  background: tomato;
+  font-size: larger;
+  color: #041330;
+  font-weight: bolder;
+  transition: 500ms;
+}
+
+.back-main:hover {
+  border: tomato solid 2px;
+  background: red;
+}
+
+.admin-input {
+  margin: 0 5rem;
+  border: none;
+  background: #041330;
+  height: 3rem;
+  color: #f1f1f1;
+  font-size: 1.5rem;
+}
+.username {
+  grid-row: 2/4;
+}
+.password {
+  grid-row: 4/6;
+}
+.buttons {
+  grid-row: 6/8;
+  display: flex;
+  justify-content: space-evenly;
+  height: 3rem;
+}
+
+.login-but {
+  width: 10rem;
+  font-size: larger;
+  background: #041330;
+  color: #f1f1f1;
+  border: none;
+  transition: 400ms;
+  border-radius: 15px;
+  font-weight: bolder;
+}
+
+.login-but:hover {
+  color: #041330;
+  background: lightskyblue;
+}

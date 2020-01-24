@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
-import {withRouter} from 'react-router-dom'
+import { withRouter, Link } from "react-router-dom";
+import './adminSidebar.scss'
 
 function AdminSidebar(props) {
   const logout = () => {
@@ -9,9 +10,26 @@ function AdminSidebar(props) {
     });
   };
 
-  return <div>AdminSidebar.jsx
-    <button onClick={() => logout()}>Logout</button>
-  </div>;
+  return (
+    <div className='sidebar'>
+      <ul className='sidebar-items'>
+        <Link to='/'>
+          <li className='sidebar-item'>Home Page</li>
+        </Link>
+        <Link to='/admin/landing/'>
+          <li className='sidebar-item'>Admin Landing</li>
+        </Link>
+        <Link to="/admin/members">
+          <li className='sidebar-item'>Member List</li>
+        </Link>
+        <Link to="/admin/anounce">
+          <li className='sidebar-item'>Create Anouncement</li>
+        </Link>
+        <div></div>
+      <button onClick={() => logout()} className='sidebar-button'>Logout</button>
+      </ul>
+    </div>
+  );
 }
 
 export default withRouter(AdminSidebar);

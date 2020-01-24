@@ -37,8 +37,6 @@ module.exports = {
               to: result.email, // list of receivers
               subject: "Hello ✔", // Subject line
               html: "<div>Something</div>"
-                
-              
             })
             .catch(err => console.log(err));
           res.status(200).send("Application Accepted");
@@ -46,5 +44,20 @@ module.exports = {
       : db.admin.delete_application(id).then(result => {
           res.status(200).send("Application Denied");
         });
+  },
+  addPost(req, res) {
+    const db = req.app.get("db");
+    const { content } = req.body;
+    const { username } = req.session.user;
+    db.admin.add_anouncement(username, content).then(result => {
+      res.status(201).send("Anouncement added");
+    });
+  },
+  deleteAnouncement(req, res) {
+    const db = req.app.get("db");
+    const { id } = req.params;
+    db.admin.delete_anouncement(id).then(result => {
+      res.status(200).send(result);
+    });
   }
 };

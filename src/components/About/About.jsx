@@ -28,8 +28,8 @@ class About extends React.Component {
       this.setState(
         {
           countries: countries
-        },
-        console.log(countries)
+        }
+        
       );
     });
   }

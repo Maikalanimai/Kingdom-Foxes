@@ -35,9 +35,12 @@ app.get('/api/members',playCtrl.getMemberList)
 app.get('/api/member/:username', playCtrl.updatePlayerData)
 app.get('/api/randStats', playCtrl.getRandomStats)
 app.get('/api/map', playCtrl.getCountryList)
+app.get('/api/anouncements', playCtrl.getAnouncements)
 //admin restricted endpoints
 app.get('/admin/applications', authCheck, adminCtrl.getApplications)
 app.put('/admin/applicationresult/:id', authCheck, adminCtrl.applicationProcess)
+app.post('/admin/post', authCheck, adminCtrl.addPost)
+app.delete('/admin/anouncement/remove/:id', authCheck, adminCtrl.deleteAnouncement)
 //authorization endpoints
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
