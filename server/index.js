@@ -38,9 +38,11 @@ app.get('/api/map', playCtrl.getCountryList)
 app.get('/api/anouncements', playCtrl.getAnouncements)
 //admin restricted endpoints
 app.get('/admin/applications', authCheck, adminCtrl.getApplications)
+app.get('/admin/members', authCheck, adminCtrl.getMembers)
 app.put('/admin/applicationresult/:id', authCheck, adminCtrl.applicationProcess)
 app.post('/admin/post', authCheck, adminCtrl.addPost)
 app.delete('/admin/anouncement/remove/:id', authCheck, adminCtrl.deleteAnouncement)
+app.put('/admin/members/:id', authCheck, adminCtrl.updateMember)
 //authorization endpoints
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)

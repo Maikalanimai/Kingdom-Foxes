@@ -59,5 +59,46 @@ module.exports = {
     db.admin.delete_anouncement(id).then(result => {
       res.status(200).send(result);
     });
+  },
+  getMembers(req, res) {
+    const db = req.app.get("db");
+    db.admin.get_members().then(result => {
+      res.status(200).send(result);
+    });
+  },
+  updateMember(req, res) {
+    const db = req.app.get("db");
+    const { id } = req.params;
+    const {
+      username,
+      dateJoined,
+      gender,
+      region,
+      rank,
+      nobleClass,
+      medals,
+      country,
+      admin,
+      pm
+    } = req.body;
+    db.admin
+      .update_member(
+        username,
+        dateJoined,
+        gender,
+        region,
+        rank,
+        nobleClass,
+        medals,
+        country,
+        admin,
+        pm,
+        id
+      )
+      .then(() => {
+        db.admin.get_members().then(result => {
+          res.status(200).send(result);
+        });
+      });
   }
 };
