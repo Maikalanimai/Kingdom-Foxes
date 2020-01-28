@@ -30,9 +30,9 @@ function WizardOne(props) {
     }
   };
 
-  return (
-    <div>
+  return (<>
       <Join />
+    <div className='application-main'>
       <input
         type="text"
         placeholder="In Game Username"
@@ -68,8 +68,9 @@ function WizardOne(props) {
         value={age}
       />
       <button onClick={e => next()}>Next</button>
-      <Footer/>
     </div>
+      <Footer/>
+      </>
   );
 }
 

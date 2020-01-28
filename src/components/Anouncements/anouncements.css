@@ -6,8 +6,8 @@
 .anouncements-main{
   display: grid;
   grid-template-columns: 2fr 9fr;
-  grid-template-rows: 20vh;
-  grid-auto-rows: 20vh;
+  grid-template-rows: auto;
+  grid-auto-rows: auto;
   margin: 2vh 5vw 0px ;
 }
 .anouncement-poster{
@@ -18,6 +18,7 @@
 .anouncement-content{
   border: solid #f1f1f1 2px;
   font-size: xx-large;
+  padding: 1rem;
 }
 .anouncement-delete{
   background-color:  tomato;
@@ -26,9 +27,3 @@
   #041330;
 }
 
-@media(max-width: 1000px){
-  .anouncements-main{
-    grid-template-rows: 30vh;
-    grid-auto-rows: 30vh;
-  }
-}

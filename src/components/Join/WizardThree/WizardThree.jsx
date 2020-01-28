@@ -49,8 +49,10 @@ function WizardThree(props) {
   };
 
   return (
-    <div>
-      <Join />
+    
+    <>
+    <Join />
+    <div className='application-main'>
       
       <input
         placeholder="Discord tag"
@@ -93,8 +95,9 @@ function WizardThree(props) {
         <button>Back</button>
       </Link>
       <button onClick={e => next()}>Submit</button>
-      <Footer/>
     </div>
+      <Footer/>
+      </>
   );
 }
 

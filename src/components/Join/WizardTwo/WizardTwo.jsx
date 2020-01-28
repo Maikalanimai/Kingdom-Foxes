@@ -57,9 +57,9 @@ function WizardTwo(props) {
     }
   };
 
-  return (
-    <div>
+  return (<>
       <Join />
+    <div className='application-main'>
       Hours per week in game
       <input
         type="number"
@@ -125,8 +125,9 @@ function WizardTwo(props) {
         <button>Back</button>
       </Link>
       <button onClick={e => next()}>Next</button>
-      <Footer/>
     </div>
+      <Footer/>
+      </>
   );
 }
 

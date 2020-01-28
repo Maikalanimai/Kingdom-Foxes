@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../Nav/Nav.jsx'
+import './join.css'
 
 
 function Join() {

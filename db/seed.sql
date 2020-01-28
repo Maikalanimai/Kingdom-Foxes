@@ -56,6 +56,4 @@ CREATE TABLE "anouncements" (
   "date_posted" timestamp
 );
 
-ALTER TABLE "player_data" ADD FOREIGN KEY ("username") REFERENCES "guild_members" ("username");
-
 ALTER TABLE "anouncements" ADD FOREIGN KEY ("poster") REFERENCES "guild_members" ("username");
