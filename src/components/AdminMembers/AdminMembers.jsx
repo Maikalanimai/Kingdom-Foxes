@@ -21,12 +21,20 @@ class AdminMembers extends Component {
     });
   }
 
+  updateStateAfterDelete=(i)=>{
+    let array = [...this.state.members]
+    array.splice(i, 1)
+    this.setState({
+      members: array
+    })
+  }
+
   delete = (id, key) => {
     Axios
       .delete(`/admin/deletemember/${id}`)
       .then(() => {
         alert("Member Deleted");
-        this.members.splice(key, 1)
+        this.updateStateAfterDelete(key)
       })
       .catch(err => {
         console.error(err);
@@ -81,6 +89,7 @@ class AdminMembers extends Component {
             return (
               <AdminMember
                 deleteMember={this.delete}
+                index={i}
                 key={e.id}
                 id={e.id}
                 username={e.username}

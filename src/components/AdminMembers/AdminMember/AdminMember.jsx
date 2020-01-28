@@ -66,7 +66,7 @@ class AdminMember extends Component {
             Edit
           </button>
           <button onClick={() => {
-            this.props.deleteMember(this.state.id, this.props.key)
+            this.props.deleteMember(this.state.id, this.props.index)
           }}>Delete</button> {/* pass down as prop */}
         </ul>
       </div>
