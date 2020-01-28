@@ -31,7 +31,7 @@ class AdminMembers extends Component {
 
   delete = (id, key) => {
     Axios
-      .delete(`/admin/deletemember/${id}`)
+      .delete(`/admin/member/${id}`)
       .then(() => {
         alert("Member Deleted");
         this.updateStateAfterDelete(key)

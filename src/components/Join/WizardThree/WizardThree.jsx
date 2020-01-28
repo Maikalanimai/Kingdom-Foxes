@@ -51,7 +51,7 @@ function WizardThree(props) {
   return (
     <div>
       <Join />
-      WizardThree.jsx
+      
       <input
         placeholder="Discord tag"
         type="text"

@@ -32,11 +32,11 @@ function Home() {
           Consider us or one of our allies!
           <hr />
         </h1>
-        <a href="https://forums.wynncraft.com/threads/%E2%98%86-paladins-united-level-73-guild-recruiting-level-60.246617/">
+        <a className='puna' href="https://forums.wynncraft.com/threads/%E2%98%86-paladins-united-level-73-guild-recruiting-level-60.246617/">
           <img className="punlogo" src={pun} alt="Paladins United" />
         </a>
-        <a href="https://bit.ly/JoinImpUWU">
-          <img className="imp" src={imp} alt="Imperial" />
+        <a className='impa' href="https://bit.ly/JoinImpUWU">
+          <img className="implogo" src={imp} alt="Imperial" />
         </a>
       </main>
       <Footer />

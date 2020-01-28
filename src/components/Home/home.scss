@@ -40,9 +40,34 @@
 .punlogo {
   width: 75%;
 }
-.imp {
+.implogo {
   grid-row:3;
   grid-column: 2/4;
   width: 230%;
-  border-radius: 40px;
 }
+
+@media(max-width: 1000px){
+  .old-logo{
+    display: none;
+  }
+  .home-inner{
+    grid-column-end: 4;
+  }
+  .home-main{
+    grid-template-rows: 30vh 10vh 20vh 42vh;
+  }
+  .impa {
+    grid-row: 3;
+    grid-column: 1/4;
+  }
+  .implogo{
+    width: 100%;
+  }
+  .puna {
+    grid-row: 4;
+    grid-column: 1/4;
+  }
+  .punlogo{
+    width: 40%
+  }
+} 

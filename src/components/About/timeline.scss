@@ -13,3 +13,9 @@
   stroke: black;
   stroke-width: 1px;
 }
+
+@media(max-width: 1000px){
+  .test{
+    width: 100vw;
+  }
+}

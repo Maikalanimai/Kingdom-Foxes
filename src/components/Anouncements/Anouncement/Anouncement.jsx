@@ -2,19 +2,20 @@ import React from "react";
 
 function Anouncement(props) {
   return (
-    <div className="anouncement">
-      <h2>
+    <>
+      <h2 className='anouncement-poster'>
         {props.rank} {props.poster}
-      </h2>
-      <p>{props.content}</p>
       {props.isAdmin ? (
-        <button onClick={() => props.deleteAnouncement(props.id)}>
+        <button className='anouncement-delete' onClick={() => props.deleteAnouncement(props.id)}>
           Delete Anouncement
         </button>
       ) : (
         <></>
       )}
-    </div>
+
+      </h2>
+      <p className='anouncement-content'>{props.content}</p>
+    </>
   );
 }
 

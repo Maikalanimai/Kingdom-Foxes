@@ -31,12 +31,14 @@ module.exports = {
     console.log(req.query);
     method == "true"
       ? db.admin.accept_application(id).then(result => {
+        console.log(result)
           transporter
             .sendMail({
-              from: "KingdomFoxes@outlook.com", // sender address
-              to: result.email, // list of receivers
+              from: "KingdomFoxes@outlook.com", 
+              to: result[0].email, 
               subject: "Hello ✔", // Subject line
-              html: "<div>Something</div>"
+              text: 'Test'
+              
             })
             .catch(err => console.log(err));
           res.status(200).send("Application Accepted");

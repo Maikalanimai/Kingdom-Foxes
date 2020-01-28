@@ -3,6 +3,7 @@ import Anouncement from "./Anouncement/Anouncement";
 import Nav from "../Nav/Nav.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Axios from "axios";
+import './anouncements.css'
 
 class Anouncements extends Component {
   constructor() {
@@ -47,7 +48,8 @@ class Anouncements extends Component {
     return (
       <div>
         <Nav />
-        Anouncements.jsx
+        <h1 className='anouncements-header'>Anouncements</h1>
+        <div className='anouncements-main'>
         {this.state.anouncements.map(e => {
           return (
             <Anouncement
@@ -61,6 +63,7 @@ class Anouncements extends Component {
             />
           );
         })}
+        </div>
         <Footer />
       </div>
     );

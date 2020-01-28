@@ -11,7 +11,7 @@ function AddMember() {
 
   const addMember = () => {
     axios
-      .post("/admin/addmember", { username, gender, country, time })
+      .post("/admin/member", { username, gender, country, time })
       .then(() => {
         alert("Member added");
         setUsername("");

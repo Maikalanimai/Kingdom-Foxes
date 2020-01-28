@@ -1,7 +1,23 @@
 .footer {
-  padding-top: 5vh;
+  padding-top: 2vh;
   height: 15vh;
 }
 .icon {
   height: 4.5rem;
+}
+.footer-items{
+  display: grid;
+  grid-template-columns: 5rem 10fr 1fr 1fr;
+}
+.footer-button{
+  width: 12rem;
+  height: 1.5rem;
+  border: none;
+  color: slategrey;
+  align-self: center;
+  background-color: #041330;
+}
+.footer-icon{
+  align-self: center;
+  justify-self: center;
 }

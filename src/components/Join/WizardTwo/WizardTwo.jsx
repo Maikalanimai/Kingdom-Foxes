@@ -60,7 +60,7 @@ function WizardTwo(props) {
   return (
     <div>
       <Join />
-      WizardTwo.jsx Hours per week in game
+      Hours per week in game
       <input
         type="number"
         value={inGameTime}

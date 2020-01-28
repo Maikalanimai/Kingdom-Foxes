@@ -33,7 +33,6 @@ function WizardOne(props) {
   return (
     <div>
       <Join />
-      WizardOne.jsx
       <input
         type="text"
         placeholder="In Game Username"
