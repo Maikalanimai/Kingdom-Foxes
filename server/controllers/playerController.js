@@ -49,7 +49,6 @@ module.exports = {
   },
   async getMemberList(req, res) {
     console.log("Getmemberstats hit");
-    // const db = req.app.get("db");
     axios
       .get(
         "https://api.wynncraft.com/public_api.php?action=guildStats&command=Kingdom Foxes"
@@ -61,6 +60,9 @@ module.exports = {
   updatePlayerData(req, res) {
     const db = req.app.get("db");
     const { username } = req.params;
+    db.user.get_member_info(username).then(memInfo => {
+      res.status(201).send(memInfo[0]);
+    }).catch(err => {console.log(err)})
     axios
       .get(`https://api.wynncraft.com/v2/player/${username}/stats`)
       .then(result => {
@@ -79,14 +81,9 @@ module.exports = {
               memberData.global.totalLevel.combat,
               memberData.global.logins,
               memberData.global.deaths
-            )
-            .then(() => {
-              db.user.get_member_info(memberData.username).then(memInfo => {
-                res.status(201).send(memInfo[0]);
-              });
-            });
+            );
         });
-      });
+      }).catch(err => {console.log(err), console.log('failed player data update')});
   },
   getRandomStats(req, res) {
     const db = req.app.get("db");

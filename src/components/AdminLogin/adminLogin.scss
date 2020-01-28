@@ -46,9 +46,13 @@
 }
 .username {
   grid-row: 2/4;
+  justify-self: center;
+  width: 30vw;
 }
 .password {
   grid-row: 4/6;
+  justify-self: center;
+  width: 30vw;
 }
 .buttons {
   grid-row: 6/8;
