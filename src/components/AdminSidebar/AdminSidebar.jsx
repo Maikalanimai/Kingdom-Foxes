@@ -25,6 +25,9 @@ function AdminSidebar(props) {
         <Link to="/admin/anounce">
           <li className='sidebar-item'>Create Anouncement</li>
         </Link>
+        <Link to="/admin/addmember">
+          <li className='sidebar-item'>Add Member</li>
+        </Link>
         <div></div>
       <button onClick={() => logout()} className='sidebar-button'>Logout</button>
       </ul>

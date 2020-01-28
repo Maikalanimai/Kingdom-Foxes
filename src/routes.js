@@ -7,6 +7,7 @@ import AdminLogin from './components/AdminLogin/AdminLogin.jsx'
 import AdminLanding from './components/AdminLanding/AdminLanding.jsx'
 import AdminMembers from './components/AdminMembers/AdminMembers.jsx'
 import AdminCompose from './components/AdminCompose/AdminCompose.jsx'
+import AddMember from './components/AdminMembers/AddMember.jsx'
 import MemberList from './components/MemberList/MemberList.jsx'
 import WizardOne from './components/Join/WizardOne/WizardOne.jsx'
 import WizardTwo from './components/Join/WizardTwo/WizardTwo.jsx';
@@ -46,6 +47,9 @@ export default (
     </Route>
     <Route path='/admin/anounce'>
       <AdminCompose/>
+    </Route>
+    <Route path='/admin/addmember'>
+      <AddMember/>
     </Route>
   </Switch>
 )

@@ -13,3 +13,7 @@ a {
 hr {
   border-color: #ffab00;
 }
+
+input{
+  width: 8rem;
+}

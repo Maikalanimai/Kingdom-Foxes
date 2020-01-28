@@ -1,0 +1,20 @@
+insert into guild_members(
+  username,
+  gender,
+  country,
+  date_joined,
+  rank, 
+  class,
+  admin_authorized,
+  is_pm
+)
+values(
+  $1,
+  $2,
+  $3,
+  $4,
+  'Page',
+  'Trial',
+  false,
+  false
+)

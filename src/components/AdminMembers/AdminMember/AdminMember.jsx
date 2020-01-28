@@ -22,7 +22,9 @@ class AdminMember extends Component {
   componentDidMount() {
     this.setState({
       username: this.props.username,
-      dateJoined: this.props.dateJoined.substring(0, 10),
+      dateJoined: this.props.dateJoined
+      .substring(0, 10)
+      ,
       gender: this.props.gender,
       region: this.props.region,
       rank: this.props.rank,
@@ -40,6 +42,7 @@ class AdminMember extends Component {
       [key]: e.target.value
     });
   };
+
 
   render() {
     return !this.state.edit ? (
@@ -62,7 +65,9 @@ class AdminMember extends Component {
           >
             Edit
           </button>
-          <button>Delete</button> {/* pass down as prop */}
+          <button onClick={() => {
+            this.props.deleteMember(this.state.id, this.props.key)
+          }}>Delete</button> {/* pass down as prop */}
         </ul>
       </div>
     ) : (

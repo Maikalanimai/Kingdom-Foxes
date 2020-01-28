@@ -43,6 +43,8 @@ app.put('/admin/applicationresult/:id', authCheck, adminCtrl.applicationProcess)
 app.post('/admin/post', authCheck, adminCtrl.addPost)
 app.delete('/admin/anouncement/remove/:id', authCheck, adminCtrl.deleteAnouncement)
 app.put('/admin/members/:id', authCheck, adminCtrl.updateMember)
+app.post('/admin/addmember', authCheck, adminCtrl.addMember)
+app.delete('/admin/deletemember/:id', authCheck, adminCtrl.deleteMember)
 //authorization endpoints
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)

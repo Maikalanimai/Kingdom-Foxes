@@ -100,5 +100,22 @@ module.exports = {
           res.status(200).send(result);
         });
       });
+  },
+  addMember(req, res){
+    const db = req.app.get('db')
+    const {username, gender, country, time} = req.body
+    // console.log(time)
+    db.admin.add_member(username, gender, country, time.toString()).then(() => {
+      res.status(201).send('Sucessfully added')
+    })
+  },
+  deleteMember(req,res){
+    const db = req.app.get('db')
+    const {id} = req.params
+    db.admin.delete_member(id).then(() => {
+      res.sendStatus(200)
+    }).catch(err =>
+      res.status(400).send(err)
+    )
   }
 };
