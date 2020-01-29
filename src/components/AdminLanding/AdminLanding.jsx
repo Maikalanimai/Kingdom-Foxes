@@ -10,7 +10,6 @@ class AdminLanding extends Component {
       <div>
         <AdminHeader/>
         <AdminSidebar/>
-        AdminLanding.jsx
         <AdminApplication/>
       </div>
     )

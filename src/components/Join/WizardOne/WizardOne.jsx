@@ -33,26 +33,31 @@ function WizardOne(props) {
   return (<>
       <Join />
     <div className='application-main'>
+      <div className='application-fields'>
       <input
+        className='app-input'
         type="text"
         placeholder="In Game Username"
         onChange={e => setIgn(e.target.value)}
         value={ign}
       />
       <input
+      className='app-input'
         type="text"
         placeholder="Country"
         onChange={e => setCountry(e.target.value)}
         value={country}
       />
       <input
+      className='app-input'
         type="text"
         placeholder="Timezone"
         onChange={e => setTimezone(e.target.value)}
         value={timezone}
       />
-      <p>Gender</p>
+      <div>
       <select
+        className='app-input'
         name="gender"
         onChange={e => setGender(e.target.value)}
         value={gender}
@@ -61,13 +66,16 @@ function WizardOne(props) {
         <option value="M">M</option>
         <option value="F">F</option>
       </select>
+      </div>
       <input
+      className='app-input'
         type="number"
         placeholder="Age"
         onChange={e => setAge(e.target.value)}
         value={age}
       />
-      <button onClick={e => next()}>Next</button>
+      </div>
+      <button className='next' onClick={e => next()}>Next＞＞</button>
     </div>
       <Footer/>
       </>

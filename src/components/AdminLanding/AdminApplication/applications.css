@@ -1,0 +1,38 @@
+.all-apps{
+  width: 85vw;
+  display: grid;
+  grid-template-columns: 50vw 35vw;
+}
+.unhandled{
+  width: 50vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 30vh);
+  grid-auto-rows: 30vh;
+}
+.admin-application{
+  height: 100%;
+}
+.admin-application-items{
+  height: 85%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.application-item{
+  grid-column: span 2;
+}
+/* .large{
+  grid-row: span 2;
+} */
+
+.accepted{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.finalize{
+  width: 15rem;
+}

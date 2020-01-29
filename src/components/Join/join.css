@@ -1,5 +1,73 @@
 .application-main{
   height: 72.5vh;
-  align-content: center;
+  align-items: center;
   justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.application-fields{
+  border: orange solid 1px;
+  background: orange;
+  height: 30vh;
+  width: 40vw;
+  align-items: center;
+  grid-row: 2/3;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #041330;
+  border-radius: 15px;
+}
+
+.app-input{
+  border:  #041330 solid 1px;
+  height: 1.5rem;
+  width: 20vw;
+}
+
+.next{
+  grid-column: 3/4;
+  grid-row: 2/3;
+  width: 10vw;
+  justify-self: center;
+  height: 3rem;
+  font-size: x-large;
+  border-radius: 25px;
+  background-color: #a7eb64;
+  border: green solid 2px;
+  transition: 300ms;
+}
+
+.back{
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: 10vw;
+  justify-self: center;
+  height: 3rem;
+  font-size: x-large;
+  border-radius: 25px;
+  background-color: tomato;
+  border: red solid 2px;
+  transition: 300ms;
+}
+
+.app-textinput{
+  border:  #041330 solid 1px;
+  height: 3rem;
+  width: 20vw;
+  resize: none;
+}
+
+.next:hover{
+  color: white;
+  background-color: green;
+  border: #a7eb64 solid 2px;
+}
+.back:hover{
+  color: white;
+  background-color: red;
+  border: tomato solid 2px;
 }

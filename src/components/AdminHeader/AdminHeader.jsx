@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {withRouter} from 'react-router-dom'
 import Axios from 'axios'
+import './adminHeader.css'
 
 function AdminHeader(props) {
   const [username, setUsername] = useState([])
@@ -14,9 +15,17 @@ function AdminHeader(props) {
 
     })
   })
-  return (<div>
-    AdminHeader.jsx
-    Welcome {username}!
+
+
+  return (<div className='admin-header'>
+    <div className='admin-user'>
+    <h1>Welcome {username}!</h1>
+      {props.match.path === '/admin/members' ? <h2 className='location'>Member List</h2>: <></>}
+      {props.match.path === '/admin/addmember' ? <h2 className='location'>Add Member</h2>: <></>}
+      {props.match.path === '/admin/anounce' ? <h2 className='location'>Create Anouncement</h2>: <></>}
+      {props.match.path === '/admin/landing' ? <h2 className='location'>Applications</h2>: <></>}
+    </div>
+    <hr/>
   </div>)
 }
 

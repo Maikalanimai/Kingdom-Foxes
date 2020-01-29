@@ -53,8 +53,9 @@ function WizardThree(props) {
     <>
     <Join />
     <div className='application-main'>
-      
+      <div className='application-fields'>
       <input
+        className='app-input'
         placeholder="Discord tag"
         type="text"
         value={discord}
@@ -63,6 +64,7 @@ function WizardThree(props) {
         }}
       />
       <input
+      className='app-input'
         placeholder="Wynncraft forum username"
         type="text"
         value={forumUser}
@@ -72,8 +74,9 @@ function WizardThree(props) {
       />
       <p>
         Would you like to recieve an email update on your application in
-        addition to being contacted through discord or the wynncraft forums?
+        addition to being contacted through discord and the wynncraft forums?
         <input
+        
           type="checkbox"
           value={mailConsent}
           onChange={e => setMailConsent(!mailConsent)}
@@ -82,6 +85,7 @@ function WizardThree(props) {
       {mailConsent ? (
         <>
           <input
+          className='app-input'
             type="text"
             placeholder="email"
             value={email}
@@ -91,10 +95,11 @@ function WizardThree(props) {
       ) : (
         <></>
       )}
-      <Link to="/join/2">
-        <button>Back</button>
+      </div>
+      <Link className='back' to="/join/2">
+        <button className='back'>＜＜Back</button>
       </Link>
-      <button onClick={e => next()}>Submit</button>
+      <button className='next' onClick={e => next()}>Submit＞</button>
     </div>
       <Footer/>
       </>

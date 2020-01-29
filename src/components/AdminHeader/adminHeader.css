@@ -1,0 +1,16 @@
+.admin-header{
+  height: 10vh;
+  font-size: 2rem;
+  justify-content: left;
+}
+.admin-user{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  height: 75%;
+  justify-content: center;
+  align-items: center;
+}
+
+.location{
+  grid-column: 2/4;
+}
