@@ -83,7 +83,6 @@ class AdminMembers extends Component {
       <div>
         <AdminHeader />
         <AdminSidebar />
-        AdminMembers.jsx
         <div className="admin-members">
           {this.state.members.map((e, i) => {
             return (

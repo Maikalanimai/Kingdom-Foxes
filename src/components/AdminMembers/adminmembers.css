@@ -2,3 +2,40 @@
   width: 85vw;
   left: 0;
 }
+.add-member{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add{
+  border: orange solid 2px;
+  width: 20rem;
+  margin: 2vh;
+  border-radius: 25px ;
+}
+.inner-box{
+  display: grid;
+  grid-template-rows: repeat(5, 10vh);
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: 40vh;
+  width: 30vw;
+  background: orange;
+  border-radius: 40px;
+}
+.add-button{
+  background: lightgreen;
+  height: 2rem;
+  font-size: x-large;
+  font-weight: bolder;
+  transition: 300ms;
+}
+
+.add-button:hover{
+  background: orange;
+  border: red 2px solid;
+
+}
+

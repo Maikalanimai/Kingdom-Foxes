@@ -17,7 +17,7 @@ function AddMember() {
         setUsername("");
         setGender("");
         setCountry("");
-        setTime('')
+        setTime("");
       })
       .catch(err => {
         alert("an error occured");
@@ -29,31 +29,39 @@ function AddMember() {
     <div>
       <AdminHeader />
       <AdminSidebar />
-      <input
-        placeholder="Username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-      />
-      <input
-        placeholder="Gender /M or F/"
-        value={gender}
-        maxLength={1}
-        onChange={e => setGender(e.target.value)}
-      />
-      <input
-        placeholder="Country"
-        value={country}
-        onChange={e => setCountry(e.target.value)}
-      />
-      <input
-        placeholder="YYYY-MM-DD"
-        value={time}
-        onChange={e => {
-          setTime(e.target.value);
-        }}
-        type={Text}
-      />
-      <button onClick={() => addMember()}>Add Member</button>
+      <div className="add-member">
+        <div className="inner-box">
+          <input
+            className="admin-input add"
+            placeholder="Username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          <input
+            className="admin-input add"
+            placeholder="Gender /M or F/"
+            value={gender}
+            maxLength={1}
+            onChange={e => setGender(e.target.value)}
+          />
+          <input
+            className="admin-input add"
+            placeholder="Country"
+            value={country}
+            onChange={e => setCountry(e.target.value)}
+          />
+          <input
+            className="admin-input add"
+            placeholder="YYYY-MM-DD"
+            value={time}
+            onChange={e => {
+              setTime(e.target.value);
+            }}
+            type={Text}
+          />
+          <button className='add add-button' onClick={() => addMember()}>Add Member</button>
+        </div>
+      </div>
     </div>
   );
 }

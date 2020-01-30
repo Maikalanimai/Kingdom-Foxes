@@ -1,0 +1,21 @@
+.admin-compose{
+  height: 50vh;
+  flex-direction: column;
+  display: flex;
+  /* justify-content: center; */
+  padding: 20vh;
+  align-items: center;
+}
+
+
+.compose-area{
+  resize: none;
+  height: 40%;
+  width: 40%
+}
+
+.compose-button{
+  width: 10rem;
+  height: 2rem;
+  font-size: large;
+}
