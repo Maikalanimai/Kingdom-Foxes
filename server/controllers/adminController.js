@@ -36,8 +36,8 @@ module.exports = {
             .sendMail({
               from: "KingdomFoxes@outlook.com", 
               to: result[0].email, 
-              subject: "Hello ✔", // Subject line
-              text: 'Test'
+              subject: "Welcome to Kingdom Foxes!", // Subject line
+              text: `${result[0].email}, You've been offered a conditional admission into the Kingdom of Foxes! To accept our offer, type /guild join Fox when you're in-game. Note that this means in order to become a full-member of our guild, there are certain conditions you must meet first. For a more in-depth explanation, click on the buttons on our thread. Second, be apart of our Discord group: Discord is our way of staying connected to you even when we’re not in the game. Unless given a proper pardon, send @LoveLusting or me a notice before you go inactive. The invitation for our Discord is https://discord.gg/f26TyGn   If you have any further questions, don't be afraid to ask!`
               
             })
             .catch(err => console.log(err));
