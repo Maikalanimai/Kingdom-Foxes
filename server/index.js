@@ -14,6 +14,7 @@ const initSession= require('./middleware/initSession')
 const authCheck= require('./middleware/authCheck')
 
 //top level middleware
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(express.json())
 app.use(
   session(
